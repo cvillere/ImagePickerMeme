@@ -62,20 +62,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
       }
     }
     
-    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+    //function created to refactor code from two below buttons
+    func pickImage (sourceType: UIImagePickerControllerSourceType) {
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        
+
+        pickImage(sourceType: .camera)
     }
     
     @IBAction func pickAnImage(_ sender: Any) {
         
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+
+        pickImage(sourceType: .photoLibrary)
         
     }
     
@@ -98,15 +104,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = memeObject(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
     }
     
-
+    //function created to refactor hiding and showing tool and nav bars
+    func toolNavBool(Bool: Bool ) {
+        self.toolBar.isHidden = Bool
+        self.navBar.isHidden = Bool
+        
+        
+    }
     
     
     func generateMemedImage() -> UIImage {
         
         
         // TODO: Hide toolbar and navbar
-        self.toolBar.isHidden = true
-        self.navBar.isHidden = true
+        toolNavBool(Bool: true)
         
         
         // Render view to an image
@@ -117,8 +128,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         // TODO: Show toolbar and navbar
-        self.toolBar.isHidden = false
-        self.navBar.isHidden = false
+        toolNavBool(Bool: false)
         
         
         return memedImage
