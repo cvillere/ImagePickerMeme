@@ -86,22 +86,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    //MARK : Struct
-    
-    struct memeObject {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-        
-        }
-    
-    
     //MARK : Meme Object
     
     func save() {
         // Create the meme
         let meme = memeObject(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        
+        //Add it to the memes array in the Application Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     //function created to refactor hiding and showing tool and nav bars
