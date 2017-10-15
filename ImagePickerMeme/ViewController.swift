@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-    UITextFieldDelegate {
+    UITextFieldDelegate, UITableViewDataSource {
     
     
     //MARK : Properties
@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSForegroundColorAttributeName: UIColor.white,
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: 3.0]
+    
+    var memes = [memeObject]()
     
     
     
@@ -33,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var navShareButton: UIBarButtonItem!
+    
     
     //MARK : Actions
     
@@ -49,7 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
         
-        //dismiss the view controller
+
         
         
         //saving the meme
@@ -127,6 +130,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
+    //MARK: TableView Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return memes.count
+        
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell")!
+        let meme = self.memes[(indexPath as NSIndexPath).row]
+        
+        // Set the name and image
+        cell.textLabel?.text = meme.topText
+        cell.imageView?.image = meme.memedImage
+        
+        // If the cell has a detail label, we will put the evil scheme in.
+        if let detailTextLabel = cell.detailTextLabel {
+            detailTextLabel.text = "TopText: \(meme.topText)"
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "memeDetailViewController") as! memeDetailViewController
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
+    }
 
     
     
@@ -145,6 +177,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
+        
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [space, space, pickAnImageButton, space, cameraButton, space, space]
         
     }
     
