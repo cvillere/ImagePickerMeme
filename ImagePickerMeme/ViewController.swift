@@ -88,6 +88,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    //MARK: present method used to present the meme editor
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        let viewControllerToPresent = UITabBarController()
+        present(viewControllerToPresent, animated: true, completion: nil)
+        
+    }
+    
     
     //MARK : Meme Object
     
@@ -132,7 +139,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("good")
         return memes.count
+        
         
     }
 
