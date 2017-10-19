@@ -54,7 +54,7 @@
         <scene sceneID="2KN-XJ-ed4">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHH-7b-bkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Memes" id="lem-t1-mSW" sceneMemberID="viewController">
+                <viewController title="Memes" id="lem-t1-mSW" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XhG-Vt-6hf"/>
                         <viewControllerLayoutGuide type="bottom" id="ef1-fb-MJd"/>
@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="-1071" y="36"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Meme Collection View Controller-->
         <scene sceneID="bOI-xV-cQ5">
             <objects>
-                <collectionViewController id="E4W-6r-VcO" sceneMemberID="viewController">
+                <collectionViewController id="E4W-6r-VcO" customClass="memeCollectionViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="1S2-Sp-UQI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
