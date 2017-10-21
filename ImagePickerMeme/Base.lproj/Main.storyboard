@@ -53,45 +53,28 @@
         <!--Memes-->
         <scene sceneID="2KN-XJ-ed4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cHH-7b-bkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController title="Memes" id="lem-t1-mSW" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XhG-Vt-6hf"/>
-                        <viewControllerLayoutGuide type="bottom" id="ef1-fb-MJd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Pi7-nY-Her">
+                <viewController title="Memes" id="lem-t1-mSW" customClass="memeTable" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ztx-LO-LD2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-2F-nvp">
-                                <rect key="frame" x="16" y="72" width="343" height="526"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewReuse" id="rmO-WC-Ix1">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rmO-WC-Ix1" id="fYe-PX-law">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="lem-t1-mSW" id="LJV-bc-C7s"/>
-                                    <outlet property="delegate" destination="lem-t1-mSW" id="Dj8-cg-nyL"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ef1-fb-MJd" firstAttribute="top" secondItem="KGj-2F-nvp" secondAttribute="bottom" constant="20" id="GSZ-ke-O4g"/>
-                            <constraint firstItem="KGj-2F-nvp" firstAttribute="trailing" secondItem="Pi7-nY-Her" secondAttribute="trailingMargin" id="aTW-KZ-yFi"/>
-                            <constraint firstItem="KGj-2F-nvp" firstAttribute="leading" secondItem="Pi7-nY-Her" secondAttribute="leadingMargin" id="ak3-PL-yel"/>
-                            <constraint firstItem="KGj-2F-nvp" firstAttribute="top" secondItem="XhG-Vt-6hf" secondAttribute="bottom" constant="8" id="mXM-ba-RfM"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Memes" id="dSZ-a3-3RU"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memeCellReuse" id="XIA-wJ-IGd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XIA-wJ-IGd" id="Yve-r6-bFA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Table" id="dSZ-a3-3RU"/>
+                    <connections>
+                        <outlet property="memeView" destination="Ztx-LO-LD2" id="hlk-ph-AVz"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHH-7b-bkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-226.40000000000001" y="-700.29985007496259"/>
         </scene>
@@ -112,11 +95,11 @@
             </objects>
             <point key="canvasLocation" x="-1071" y="36"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Collection-->
         <scene sceneID="bOI-xV-cQ5">
             <objects>
                 <collectionViewController id="E4W-6r-VcO" customClass="memeCollectionViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="1S2-Sp-UQI">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1S2-Sp-UQI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,7 +120,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="xEp-nR-s9F"/>
+                    <navigationItem key="navigationItem" title="Collection" id="xEp-nR-s9F"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ja5-GZ-3iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,7 +129,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

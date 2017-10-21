@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-    UITextFieldDelegate, UITableViewDataSource {
+    UITextFieldDelegate {
     
     
     //MARK : Properties
@@ -20,7 +20,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: 3.0]
     
-    var memes = [memeObject]()
     
     
     
@@ -88,12 +87,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    //MARK: present method used to present the meme editor
-    func present(_ viewControllerToPresent: ViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        let viewControllerToPresent = ViewController()
-        present(viewControllerToPresent, animated: true, completion: nil)
-        
-    }
     
     
     //MARK : Meme Object
@@ -137,39 +130,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    //MARK: TableView Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memes.count
-        
-        
-    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell")!
-        let meme = self.memes[(indexPath as NSIndexPath).row]
-        
-        // Set the name and image
-        cell.textLabel?.text = meme.topText
-        cell.imageView?.image = meme.memedImage
-        
-        // If the cell has a detail label, we will put the evil scheme in.
-        if let detailTextLabel = cell.detailTextLabel {
-            detailTextLabel.text = "TopText: \(meme.topText)"
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "memeDetailViewController") as! memeDetailViewController
-        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
-        self.navigationController!.pushViewController(detailController, animated: true)
-    }
-
-    
-    
     
     
     //MARK : LifeCycle
