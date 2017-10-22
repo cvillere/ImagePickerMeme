@@ -26,7 +26,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="T5R-7m-ufa" kind="relationship" relationship="viewControllers" id="f3Q-P4-VbP"/>
-                        <segue destination="BDj-y5-w12" kind="relationship" relationship="viewControllers" id="gDt-MD-x0f"/>
+                        <segue destination="BDj-y5-w12" kind="relationship" relationship="viewControllers" id="aBW-rh-lkZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3SB-Cl-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -71,7 +71,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Table" id="dSZ-a3-3RU"/>
                     <connections>
-                        <outlet property="memeView" destination="Ztx-LO-LD2" id="hlk-ph-AVz"/>
+                        <outlet property="memeView" destination="Ztx-LO-LD2" id="wm7-oY-6OA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHH-7b-bkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,18 +104,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dnD-oN-C8o">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="90" height="59"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewReuse" id="cck-4y-mJf">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewReuse" id="cck-4y-mJf" customClass="collectionViewReuse">
+                                <rect key="frame" x="0.0" y="0.0" width="90" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AaA-e0-VWM">
+                                            <rect key="frame" x="-75" y="-35" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
                             </collectionViewCell>
                         </cells>
@@ -124,12 +130,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ja5-GZ-3iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="19"/>
+            <point key="canvasLocation" x="-213.59999999999999" y="18.440779610194905"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

@@ -56,15 +56,21 @@ class memeTable: UITableViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
+    
     //MARK: present method used to present the meme editor
-    func present(_ viewControllerToPresent: ViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        if let memeEditorView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController {
-            self.present(memeEditorView, animated: true, completion: nil)
+    
+//    func present(_ viewControllerToPresent: ViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+//        if let memeEditorView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerID") as? ViewController {
+//            self.present(memeEditorView, animated: true, completion: nil)
+//        }
+//        
+//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let memeEditorView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewControllerID") as? ViewController {
+            present(memeEditorView, animated: true, completion: nil)
+            
         }
-        
     }
-    
-    
-    
     
 }
